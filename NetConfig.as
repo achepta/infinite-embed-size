@@ -20,7 +20,7 @@ IntPtr GetNetConfigPtr()
 
 IntSize GetNetConfigTcpLimitOffset()
 {
-#if TMNEXT
+#if TMNEXT || MP41
 	return 0x38;
 #else
 	return 0;
