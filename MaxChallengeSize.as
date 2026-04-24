@@ -14,6 +14,12 @@ IntPtr GetMaxChallengeSizePtr()
 	int patternOffset = 2;
 #endif
 
+#elif MP41
+	string pattern = "3B ?? ?? ?? ?? ?? 77 0F 33 C0";
+	int patternOffset = 2;
+#endif
+
+#if TMNEXT || MP41
 	auto ptr = Dev::FindPattern(pattern);
 	if (ptr == 0) {
 		warn("Unable to find max challenge size pointer!");
