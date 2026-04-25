@@ -7,8 +7,15 @@ IntPtr GetMaxChallengeSizePtr()
 	// Next, 64 bit
 
 #if LINUX
-	string pattern = "48 8D 0D ?? ?? ?? ?? 3B 01 76 0B";
+
+#if TMNEXT
+	string pattern = "48 8D 0D ?? ?? ?? ?? 3B 01 76 1F";
 	int patternOffset = 3;
+#else
+	string pattern = "3B ?? ?? ?? ?? ?? 77 11 29 D0";
+	int patternOffset = 2;
+#endif
+
 #else
 	string pattern = "3B ?? ?? ?? ?? ?? 77 0F 33 C0";
 	int patternOffset = 2;
